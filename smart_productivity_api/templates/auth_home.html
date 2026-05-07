@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authentication Service</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            background: linear-gradient(135deg,#141e30,#243b55);
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .card{
+            background: rgba(255,255,255,0.1);
+            padding:40px;
+            border-radius:20px;
+            backdrop-filter: blur(10px);
+            text-align:center;
+            width:400px;
+            box-shadow:0 0 20px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            margin-bottom:10px;
+        }
+
+        p{
+            color:#ddd;
+        }
+
+        .status{
+            color:#00ff99;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin:10px;
+            padding:12px 20px;
+            border-radius:10px;
+            text-decoration:none;
+            color:white;
+            background:#007bff;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>Smart Productivity API</h1>
+
+    <p>Authentication Service</p>
+
+    <div class="status">
+        ● API Running Successfully
+    </div>
+
+    <a href="/api/auth/register-page/" class="btn">Register</a>
+
+    <a href="/api/auth/login-page/" class="btn">Login</a>
+    
+
+    <a href="/swagger/" class="btn">Swagger Docs</a>
+
+    <a href="/api/tasks/page/" class="btn">Tasks</a>
+
+</div>
+
+</body>
+</html>

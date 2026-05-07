@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tasks</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+
+        .container {
+            width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            background: #28a745;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .task-card {
+            background: #eef3ff;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .desc {
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 8px;
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>My Tasks</h2>
+
+    <!-- ADD TASK FORM -->
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="title" placeholder="Task Title" required>
+
+        <input type="text" name="description" placeholder="Task Description">
+
+        <select name="category">
+            {% for cat in categories %}
+                <option value="{{ cat.id }}">{{ cat.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Add Task</button>
+    </form>
+
+    <hr>
+
+    <!-- TASK LIST -->
+    {% for task in tasks %}
+
+        <div class="task-card">
+
+            <div class="title">{{ task.title }}</div>
+
+            <div class="desc">{{ task.description }}</div>
+
+            <div class="badge">
+                {{ task.category.name }}
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
